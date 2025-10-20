@@ -1,0 +1,49 @@
+{
+  "id": "7dfaa0ea-cb60-483f-9695-9b160fc53b6c",
+  "template": "app-nolayers",
+  "versions": {
+    "LeptonX": "4.3.5",
+    "AbpFramework": "9.3.5",
+    "AbpCommercial": "9.3.5",
+    "AbpStudio": "1.4.1",
+    "TargetDotnetFramework": "net9.0"
+  },
+  "modules": {
+    "WebApii_Abp": {
+      "path": "WebApii_Abp.abpmdl"
+    }
+  },
+  "runProfiles": {
+    "Default": {
+      "path": "etc/run-profiles/Default.abprun.json"
+    }
+  },
+  "options": {
+    "httpRequests": {
+      "ignoredUrls": [
+      
+      ]
+    }
+  },
+  "creatingStudioConfiguration": {
+    "template": "app-nolayers",
+    "createdAbpStudioVersion": "1.4.1",
+    "multiTenancy": "true",
+    "runInstallLibs": "true",
+    "useLocalReferences": "false",
+    "uiFramework": "blazor-server",
+    "databaseProvider": "ef",
+    "runDbMigrator": "true",
+    "databaseManagementSystem": "sqlserver",
+    "createInitialMigration": "true",
+    "theme": "leptonx",
+    "themeStyle": "system",
+    "themeMenuPlacement": "side",
+    "publicWebsite": "",
+    "optionalModules": "GDPR TextTemplateManagement LanguageManagement AuditLogging OpenIddictAdmin",
+    "socialLogin": "false",
+    "selectedLanguages": ["Arabic", "Chinese (Simplified)", "Chinese (Traditional)", "Czech", "English", "English (United Kingdom)", "Finnish", "French", "German (Germany)", "Hindi ", "Hungarian", "Icelandic", "Italian", "Portuguese (Brazil)", "Romanian (Romania)", "Russian", "Slovak", "Spanish", "Swedish", "Turkish", ],
+    "defaultLanguage": "Arabic",
+    "createCommand": "abp new WebApii_Abp -t app-nolayers --ui-framework blazor-server --mobile  --database-provider ef --database-management-system sqlserver --theme leptonx --no-tests --without-cms-kit --dont-run-bundling --no-social-logins -no-file-management"
+  }
+}

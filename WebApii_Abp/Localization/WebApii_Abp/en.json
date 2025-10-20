@@ -1,0 +1,12 @@
+{
+  "culture": "en",
+  "texts": {
+    "AppName": "WebApii_Abp",
+    "Welcome_Title": "Welcome",
+    "Welcome_Text": "This is a minimalist, single layer application startup template for the ABP Framework.",
+    "Permission:Dashboard": "Dashboard",
+    "Menu:Dashboard": "Dashboard",
+    "Dashboard": "Dashboard",
+    "Menu:Home": "Home"
+  }
+}

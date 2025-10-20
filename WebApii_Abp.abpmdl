@@ -1,0 +1,69 @@
+{
+  "template": "app-nolayers",
+  "imports": {
+    "Volo.Abp.LeptonXTheme": {
+      "version": "4.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.TextTemplateManagement": {
+      "version": "9.3.5",
+      "isInstalled": true,
+      "creationTime": "10/20/2025 15:33:22 +00:00"
+    },
+    "Volo.Abp.LanguageManagement": {
+      "version": "9.3.5",
+      "isInstalled": true,
+      "creationTime": "10/20/2025 15:33:22 +00:00"
+    },
+    "Volo.Abp.Gdpr": {
+      "version": "9.3.5",
+      "isInstalled": true,
+      "creationTime": "10/20/2025 15:33:22 +00:00"
+    },
+    "Volo.Abp.AuditLogging.Pro": {
+      "version": "9.3.5",
+      "isInstalled": true,
+      "creationTime": "10/20/2025 15:33:22 +00:00"
+    },
+    "Volo.Saas": {
+      "version": "9.3.5",
+      "isInstalled": true,
+      "creationTime": "10/20/2025 15:33:22 +00:00"
+    },
+    "Volo.Abp.OpenIddict.Pro": {
+      "version": "9.3.5",
+      "isInstalled": true,
+      "creationTime": "10/20/2025 15:33:22 +00:00"
+    },
+    "Volo.Abp.Identity.Pro": {
+      "version": "9.3.5",
+      "isInstalled": true,
+      "creationTime": "10/20/2025 15:33:22 +00:00"
+    },
+    "Volo.Abp.Account.Pro": {
+      "version": "9.3.5",
+      "isInstalled": true,
+      "creationTime": "10/20/2025 15:33:22 +00:00"
+    },
+    "Volo.Abp.SettingManagement": {
+      "version": "9.3.5",
+      "isInstalled": true,
+      "creationTime": "10/20/2025 15:33:22 +00:00"
+    },
+    "Volo.Abp.PermissionManagement": {
+      "version": "9.3.5",
+      "isInstalled": true,
+      "creationTime": "10/20/2025 15:33:22 +00:00"
+    },
+    "Volo.Abp.FeatureManagement": {
+      "version": "9.3.5",
+      "isInstalled": true,
+      "creationTime": "10/20/2025 15:33:22 +00:00"
+    }
+  },
+  "packages": {
+    "WebApii_Abp": {
+      "path": "WebApii_Abp/WebApii_Abp.abppkg"
+    }
+  }
+}
