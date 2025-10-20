@@ -1,4 +1,6 @@
-﻿using WebApii_Abp.Menus;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
+using WebApii_Abp.Menus;
 using WebApii_Abp.Localization;
 using WebApii_Abp.Permissions;
 using Volo.Abp.Authorization.Permissions;
@@ -65,7 +67,6 @@ public class WebApii_AbpMenuContributor : IMenuContributor
 
         */
 
-
         //HostDashboard
         context.Menu.AddItem(
             new ApplicationMenuItem(
@@ -88,8 +89,6 @@ public class WebApii_AbpMenuContributor : IMenuContributor
             ).RequirePermissions(WebApii_AbpPermissions.Dashboard.Tenant)
         );
 
-
-        
         context.Menu.SetSubItemOrder(SaasHostMenus.GroupName, 3);
 
         //Administration->Identity
@@ -110,6 +109,13 @@ public class WebApii_AbpMenuContributor : IMenuContributor
         //Administration->Settings
         administration.SetSubItemOrder(SettingManagementMenus.GroupName, 7);
 
+        context.Menu.AddItem(
+            new ApplicationMenuItem(
+                WebApii_AbpMenus.Books,
+                l["Menu:Books"],
+                url: "/books",
+                icon: "fa fa-file-alt")
+        );
         return Task.CompletedTask;
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+using WebApii_Abp.Books;
+using Microsoft.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore.Modeling;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
@@ -18,7 +19,8 @@ namespace WebApii_Abp.Data;
 
 public class WebApii_AbpDbContext : AbpDbContext<WebApii_AbpDbContext>
 {
-    
+    public DbSet<Book> Books { get; set; } = null!;
+
     public const string DbTablePrefix = "App";
     public const string DbSchema = null;
 
@@ -45,8 +47,19 @@ public class WebApii_AbpDbContext : AbpDbContext<WebApii_AbpDbContext>
         builder.ConfigureLanguageManagement();
         builder.ConfigureSaas();
         builder.ConfigureTextTemplateManagement();
-        
+
         /* Configure your own entities here */
+        if (builder.IsHostDatabase())
+        {
+            builder.Entity<Book>(b =>
+            {
+                b.ToTable(DbTablePrefix + "Books", DbSchema);
+                b.ConfigureByConvention();
+                b.Property(x => x.BookId).HasColumnName(nameof(Book.BookId));
+                b.Property(x => x.BookName).HasColumnName(nameof(Book.BookName));
+                b.Property(x => x.Price).HasColumnName(nameof(Book.Price));
+            });
+
+        }
     }
 }
-

@@ -1,3 +1,5 @@
+using WebApii_Abp.Books;
+
 using Blazorise;
 using Blazorise.Bootstrap5;
 using Blazorise.Icons.FontAwesome;
@@ -136,7 +138,6 @@ namespace WebApii_Abp;
     typeof(SaasHostHttpApiModule),
     typeof(SaasHostApplicationModule),
 
-    
     // Text Template Management module packages
     typeof(TextTemplateManagementBlazorServerModule),
     typeof(TextTemplateManagementHttpApiModule),
@@ -267,7 +268,7 @@ public class WebApii_AbpModule : AbpModule
         ConfigureEfCore(context);
         ConfigureTheme();
     }
-    
+
     private void ConfigureCookieConsent(ServiceConfigurationContext context)
     {
         context.Services.AddAbpCookieConsent(options =>
@@ -277,14 +278,14 @@ public class WebApii_AbpModule : AbpModule
             options.PrivacyPolicyUrl = "/PrivacyPolicy";
         });
     }
-    
+
     private void ConfigureTheme()
     {
         Configure<LeptonXThemeOptions>(options =>
         {
             options.DefaultStyle = LeptonXStyleNames.System;
         });
-        
+
         Configure<LeptonXThemeMvcOptions>(options =>
         {
             options.ApplicationLayout = LeptonXMvcLayouts.SideMenu;
@@ -396,27 +397,27 @@ public class WebApii_AbpModule : AbpModule
                 .AddVirtualJson("/Localization/WebApii_Abp");
 
             options.DefaultResourceType = typeof(WebApii_AbpResource);
-            
-            options.Languages.Add(new LanguageInfo("ar", "ar", "Arabic")); 
-            options.Languages.Add(new LanguageInfo("zh-Hans", "zh-Hans", "Chinese (Simplified)")); 
-            options.Languages.Add(new LanguageInfo("zh-Hant", "zh-Hant", "Chinese (Traditional)")); 
-            options.Languages.Add(new LanguageInfo("cs", "cs", "Czech")); 
-            options.Languages.Add(new LanguageInfo("en", "en", "English")); 
-            options.Languages.Add(new LanguageInfo("en-GB", "en-GB", "English (United Kingdom)")); 
-            options.Languages.Add(new LanguageInfo("fi", "fi", "Finnish")); 
-            options.Languages.Add(new LanguageInfo("fr", "fr", "French")); 
-            options.Languages.Add(new LanguageInfo("de-DE", "de-DE", "German (Germany)")); 
-            options.Languages.Add(new LanguageInfo("hi", "hi", "Hindi ")); 
-            options.Languages.Add(new LanguageInfo("hu", "hu", "Hungarian")); 
-            options.Languages.Add(new LanguageInfo("is", "is", "Icelandic")); 
-            options.Languages.Add(new LanguageInfo("it", "it", "Italian")); 
-            options.Languages.Add(new LanguageInfo("pt-BR", "pt-BR", "Portuguese (Brazil)")); 
-            options.Languages.Add(new LanguageInfo("ro-RO", "ro-RO", "Romanian (Romania)")); 
-            options.Languages.Add(new LanguageInfo("ru", "ru", "Russian")); 
-            options.Languages.Add(new LanguageInfo("sk", "sk", "Slovak")); 
-            options.Languages.Add(new LanguageInfo("es", "es", "Spanish")); 
-            options.Languages.Add(new LanguageInfo("sv", "sv", "Swedish")); 
-            options.Languages.Add(new LanguageInfo("tr", "tr", "Turkish")); 
+
+            options.Languages.Add(new LanguageInfo("ar", "ar", "Arabic"));
+            options.Languages.Add(new LanguageInfo("zh-Hans", "zh-Hans", "Chinese (Simplified)"));
+            options.Languages.Add(new LanguageInfo("zh-Hant", "zh-Hant", "Chinese (Traditional)"));
+            options.Languages.Add(new LanguageInfo("cs", "cs", "Czech"));
+            options.Languages.Add(new LanguageInfo("en", "en", "English"));
+            options.Languages.Add(new LanguageInfo("en-GB", "en-GB", "English (United Kingdom)"));
+            options.Languages.Add(new LanguageInfo("fi", "fi", "Finnish"));
+            options.Languages.Add(new LanguageInfo("fr", "fr", "French"));
+            options.Languages.Add(new LanguageInfo("de-DE", "de-DE", "German (Germany)"));
+            options.Languages.Add(new LanguageInfo("hi", "hi", "Hindi "));
+            options.Languages.Add(new LanguageInfo("hu", "hu", "Hungarian"));
+            options.Languages.Add(new LanguageInfo("is", "is", "Icelandic"));
+            options.Languages.Add(new LanguageInfo("it", "it", "Italian"));
+            options.Languages.Add(new LanguageInfo("pt-BR", "pt-BR", "Portuguese (Brazil)"));
+            options.Languages.Add(new LanguageInfo("ro-RO", "ro-RO", "Romanian (Romania)"));
+            options.Languages.Add(new LanguageInfo("ru", "ru", "Russian"));
+            options.Languages.Add(new LanguageInfo("sk", "sk", "Slovak"));
+            options.Languages.Add(new LanguageInfo("es", "es", "Spanish"));
+            options.Languages.Add(new LanguageInfo("sv", "sv", "Swedish"));
+            options.Languages.Add(new LanguageInfo("tr", "tr", "Turkish"));
 
         });
 
@@ -452,7 +453,7 @@ public class WebApii_AbpModule : AbpModule
         {
             options.EnableTenantImpersonation = true;
         });
-        
+
         context.Services.Configure<AbpIdentityProBlazorOptions>(options =>
         {
             options.EnableUserImpersonation = true;
@@ -490,7 +491,7 @@ public class WebApii_AbpModule : AbpModule
             }
         });
     }
-    
+
     private void ConfigureEfCore(ServiceConfigurationContext context)
     {
         context.Services.AddAbpDbContext<WebApii_AbpDbContext>(options =>
@@ -500,6 +501,8 @@ public class WebApii_AbpModule : AbpModule
              * Documentation: https://docs.abp.io/en/abp/latest/Entity-Framework-Core#add-default-repositories
              */
             options.AddDefaultRepositories(includeAllEntities: true);
+            options.AddRepository<Book, Books.EfCoreBookRepository>();
+
         });
 
         Configure<AbpDbContextOptions>(options =>
@@ -509,9 +512,8 @@ public class WebApii_AbpModule : AbpModule
                 configurationContext.UseSqlServer();
             });
         });
-        
-    }
 
+    }
 
     public override void OnApplicationInitialization(ApplicationInitializationContext context)
     {
